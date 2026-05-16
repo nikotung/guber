@@ -18,6 +18,9 @@ service:
       addr: http://127.0.0.1:8848
       username: nacos
       password: nacos
+      namespaceId: public    # optional
+      groupName: DEFAULT_GROUP # optional
+      clusterName: DEFAULT     # optional
     keep:
       # keep router tag & value third
       - key: "router"
