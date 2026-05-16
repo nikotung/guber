@@ -134,6 +134,17 @@ func (n *NacosClient) GetNacosService(app string, keep []Meta) (string, []string
 		"serviceName": {app},
 	}
 
+	if n.NacosConfig.NamespaceId != "" {
+		params.Add("namespaceId", n.NacosConfig.NamespaceId)
+	}
+	if n.NacosConfig.GroupName != "" {
+		params.Add("groupName", n.NacosConfig.GroupName)
+	}
+	if n.NacosConfig.ClusterName != "" {
+		params.Add("clusterName", n.NacosConfig.ClusterName)
+		params.Add("clusters", n.NacosConfig.ClusterName)
+	}
+
 	resp, err := http.Get(n.NacosConfig.Addr + "/nacos/v1/ns/instance/list?" + params.Encode())
 	if err != nil {
 		mlog.L().Error("nacos get service failed", zap.String("app", app), zap.Error(err))

@@ -6,9 +6,12 @@ type Config struct {
 }
 
 type Nacos struct {
-	Addr     string `yaml:"addr"`
-	Username string `yaml:"username"`
-	Password string `yaml:"password"`
+	Addr        string `yaml:"addr"`
+	Username    string `yaml:"username"`
+	Password    string `yaml:"password"`
+	NamespaceId string `yaml:"namespaceId"`
+	GroupName   string `yaml:"groupName"`
+	ClusterName string `yaml:"clusterName"`
 }
 
 type App struct {
@@ -39,6 +42,9 @@ service:
 	  addr: 127.0.0.0
 	  username: admin
 	  password: 123456
+	  namespaceId: public
+	  groupName: DEFAULT_GROUP
+	  clusterName: DEFAULT
   - names:
 	  - App3
 	  - App4

@@ -1,6 +1,8 @@
 module github.com/NikoTung/guber
 
-go 1.19
+go 1.21
+
+toolchain go1.24.5
 
 require (
 	github.com/IrineSistiana/mosdns/v5 v5.3.1
